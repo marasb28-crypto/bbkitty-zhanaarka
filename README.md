@@ -7,6 +7,12 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
     header { background: #4CAF50; color: white; padding: 15px; text-align: center; font-size: 24px; }
+    <nav>
+    <a href="#catalog">Каталог</a>
+    <a href="#about">О нас</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
     .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
     .product { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
     .product img { max-width: 100%; height: auto; border-radius: 8px; }
@@ -26,7 +32,7 @@
 
   <div class="products">
     <div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Подгузники BBkitty" />
+      <img src="https://via.placeholder.com/200x150" alt="Подгузники BBkitty размер S" />
       <h3>BBkitty</h3>
       <p>Цена: 2500 ₸</p>
       <button class="btn" onclick="addToCart('BBkitty', 2500)">В корзину</button>
