@@ -89,7 +89,7 @@
       message += 'Итого: ' + total + ' ₸';
 
       // Вставь сюда свой номер WhatsApp (в формате 77001234567)
-      window.open('https://wa.me/77001234567?text=' + message, '_blank');
+      window.open('https://wa.me/77019962042?text=' + message, '_blank');
     }
   </script>
 </body>
