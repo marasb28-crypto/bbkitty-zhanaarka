@@ -3,55 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Магазин подгузников</title>
+  <title>BabyShop — Магазин подгузников</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-    header { background: #4CAF50; color: white; padding: 15px; text-align: center; font-size: 24px; }
-    <nav>
-    <a href="#catalog">Каталог</a>
-    <a href="#about">О нас</a>
-    <a href="#contacts">Контакты</a>
-  </nav>
-</header>
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
-    .product { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #f0f4f8; color: #333; }
+    header { background: #4CAF50; color: white; padding: 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 28px; }
+    nav { margin-top: 10px; }
+    nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: 600; }
+    nav a:hover { text-decoration: underline; }
+
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px; }
+    .product { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
     .product img { max-width: 100%; height: auto; border-radius: 8px; }
     .product h3 { margin: 10px 0 5px; font-size: 18px; }
-    .product p { margin: 5px 0; }
-    .btn { display: inline-block; margin-top: 10px; padding: 8px 12px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .product p { margin: 5px 0; color: #666; }
+
+    .btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
     .btn:hover { background: #45a049; }
-    #cart { position: fixed; right: 20px; top: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); width: 250px; }
-    #cart h2 { font-size: 18px; margin: 0 0 10px; }
+
+    #cart { position: fixed; right: 20px; top: 20px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 280px; }
+    #cart h2 { font-size: 18px; margin: 0 0 10px; text-align: center; }
     #cart ul { list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto; }
-    #cart li { font-size: 14px; margin-bottom: 5px; }
+    #cart li { font-size: 14px; margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
     #checkout { margin-top: 10px; width: 100%; }
+
+    section { padding: 30px 20px; margin: 20px; border-radius: 12px; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    section h2 { margin-top: 0; font-size: 22px; color: #4CAF50; }
+    footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; }
   </style>
 </head>
 <body>
-  <header>Онлайн-магазин подгузников</header>
+  <header>
+    <h1>BabyShop</h1>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
 
-  <div class="products">
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Подгузники BBkitty размер S" />
-      <h3>BBkitty</h3>
-      <p>Цена: 2500 ₸</p>
-      <button class="btn" onclick="addToCart('BBkitty', 2500)">В корзину</button>
-    </div>
+  <section id="catalog">
+    <h2>Каталог товаров</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://via.placeholder.com/220x160" alt="Подгузники BBkitty" />
+        <h3>BBkitty</h3>
+        <p>Цена: 2500 ₸</p>
+        <button class="btn" onclick="addToCart('BBkitty', 2500)">В корзину</button>
+      </div>
 
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Подгузники Yokosun" />
-      <h3>Yokosun</h3>
-      <p>Цена: 3000 ₸</p>
-      <button class="btn" onclick="addToCart('Yokosun', 3000)">В корзину</button>
-    </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/220x160" alt="Подгузники Yokosun" />
+        <h3>Yokosun</h3>
+        <p>Цена: 3000 ₸</p>
+        <button class="btn" onclick="addToCart('Yokosun', 3000)">В корзину</button>
+      </div>
 
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Подгузники Mello" />
-      <h3>Mello</h3>
-      <p>Цена: 2800 ₸</p>
-      <button class="btn" onclick="addToCart('Mello', 2800)">В корзину</button>
+      <div class="product">
+        <img src="https://via.placeholder.com/220x160" alt="Подгузники Mello" />
+        <h3>Mello</h3>
+        <p>Цена: 2800 ₸</p>
+        <button class="btn" onclick="addToCart('Mello', 2800)">В корзину</button>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section id="about">
+    <h2>О нас</h2>
+    <p>Мы — онлайн-магазин детских товаров. В нашем ассортименте: подгузники, салфетки, средства ухода и игрушки. Мы предлагаем только проверенные бренды: <strong>Mama Znaet, BBkitty, Yokosun, Mello, Sabiko</strong>. Доставка по всему Казахстану.</p>
+  </section>
+
+  <section id="contacts">
+    <h2>Контакты</h2>
+    <p>📞 Телефон: +7 700 123 45 67</p>
+    <p>💬 WhatsApp: <a href="https://wa.me/77001234567" target="_blank">Написать нам</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 BabyShop. Все права защищены.</p>
+  </footer>
 
   <div id="cart">
     <h2>Корзина</h2>
@@ -95,7 +126,7 @@
       message += 'Итого: ' + total + ' ₸';
 
       // Вставь сюда свой номер WhatsApp (в формате 77001234567)
-      window.open('https://wa.me/77019962042?text=' + message, '_blank');
+      window.open('https://wa.me/77001234567?text=' + message, '_blank');
     }
   </script>
 </body>
