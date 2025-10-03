@@ -81,7 +81,7 @@
   </section>
 
   <footer>
-    <p>© 2025 BabyShop. Все права защищены.</p>
+    <p>© 2025 BB Kitty zhanaarka. Все права защищены.</p>
   </footer>
 
   <div id="cart">
