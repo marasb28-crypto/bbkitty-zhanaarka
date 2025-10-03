@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BabyShop — Магазин подгузников</title>
+  <title>BB Kitty zhanaarka — Магазин подгузников</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #f0f4f8; color: #333; }
@@ -35,7 +35,7 @@
 </head>
 <body>
   <header>
-    <h1>BabyShop</h1>
+    <h1>BB Kitty zhanaarka</h1>
     <nav>
       <a href="#catalog">Каталог</a>
       <a href="#about">О нас</a>
@@ -76,8 +76,8 @@
 
   <section id="contacts">
     <h2>Контакты</h2>
-    <p>📞 Телефон: +7 700 123 45 67</p>
-    <p>💬 WhatsApp: <a href="https://wa.me/77001234567" target="_blank">Написать нам</a></p>
+    <p>📞 Телефон: +7 747 961 31 29</p>
+    <p>💬 WhatsApp: <a href="https://wa.me/77019962042" target="_blank">Написать нам</a></p>
   </section>
 
   <footer>
