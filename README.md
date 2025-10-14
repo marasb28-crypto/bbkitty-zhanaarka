@@ -49,6 +49,7 @@
       <div class="product">
         <img src="https://via.placeholder.com/220x160" alt="Подгузники BBkitty" />
         <h3>BBkitty</h3>
+        <p>Цена: NB (до 5 кг), 32шт</p>
         <p>Цена: 7777 ₸</p>
         <button class="btn" onclick="addToCart('BBkitty', 2500)">В корзину</button>
       </div>
@@ -71,7 +72,7 @@
 
   <section id="about">
     <h2>О нас</h2>
-    <p>Мы — онлайн-магазин детских товаров. В нашем ассортименте: подгузники, салфетки, средства ухода и игрушки. Мы предлагаем только проверенные бренды: <strong>Mama Znaet, BBkitty, Yokosun, Mello, Sabiko</strong>. Доставка по всему Казахстану.</p>
+    <p>Мы — онлайн-магазин детских товаров. В нашем ассортименте: подгузники, салфетки, средства ухода и игрушки. Мы предлагаем только проверенные бренды: <strong>Mama Znaet, BBkitty, Yokosun, Mello, Sabiko</strong>. Доставка по Жанаарке бесплатно.</p>
   </section>
 
   <section id="contacts">
