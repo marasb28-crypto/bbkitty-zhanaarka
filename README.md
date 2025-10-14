@@ -49,22 +49,22 @@
       <div class="product">
         <img src="https://via.placeholder.com/220x160" alt="Подгузники BBkitty" />
         <h3>BBkitty</h3>
-        <p>Цена: 2500 ₸</p>
+        <p>Цена: 7777 ₸</p>
         <button class="btn" onclick="addToCart('BBkitty', 2500)">В корзину</button>
       </div>
 
       <div class="product">
         <img src="https://via.placeholder.com/220x160" alt="Подгузники Yokosun" />
         <h3>Yokosun</h3>
-        <p>Цена: 3000 ₸</p>
-        <button class="btn" onclick="addToCart('Yokosun', 3000)">В корзину</button>
+        <p>Цена: 3777 ₸</p>
+        <button class="btn" onclick="addToCart('Yokosun', 3777)">В корзину</button>
       </div>
 
       <div class="product">
         <img src="https://via.placeholder.com/220x160" alt="Подгузники Mello" />
         <h3>Mello</h3>
-        <p>Цена: 2800 ₸</p>
-        <button class="btn" onclick="addToCart('Mello', 2800)">В корзину</button>
+        <p>Цена: 6666 ₸</p>
+        <button class="btn" onclick="addToCart('Mello', 5555)">В корзину</button>
       </div>
     </div>
   </section>
@@ -126,7 +126,7 @@
       message += 'Итого: ' + total + ' ₸';
 
       // Вставь сюда свой номер WhatsApp (в формате 77001234567)
-      window.open('https://wa.me/77001234567?text=' + message, '_blank');
+      window.open('https://wa.me/77019962042?text=' + message, '_blank');
     }
   </script>
 </body>
