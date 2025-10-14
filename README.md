@@ -49,9 +49,9 @@
       <div class="product">
         <img src="https://via.placeholder.com/220x160" alt="Подгузники BBkitty" />
         <h3>BBkitty</h3>
-        <p>Цена: NB (до 5 кг), 32шт</p>
+        <p> NB (до 5 кг), 32шт</p>
         <p>Цена: 4500 ₸</p>
-        <button class="btn" onclick="addToCart('BBkitty', 4500)">В корзину</button>
+        <button class="btn" onclick="addToCart('BBkitty - NB', 4500)">В корзину</button>
       </div>
 
       <div class="product">
