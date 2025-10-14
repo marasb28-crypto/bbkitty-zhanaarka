@@ -47,7 +47,7 @@
     <h2>Каталог товаров</h2>
     <div class="products">
       <div class="product">
-        <img src="https://via.placeholder.com/220x160" alt="Подгузники BBkitty" />
+        <img src="[https://github.com/marasb28-crypto/bbkitty_zhanaarka/blob/main/BB%20K%20NB.jpg" alt="Подгузники BBkitty" />
         <h3>BBkitty</h3>
         <p> NB (до 5 кг), 32шт</p>
         <p>Цена: 4500 ₸</p>
