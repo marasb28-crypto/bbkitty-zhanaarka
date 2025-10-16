@@ -1,134 +1,155 @@
-
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BB Kitty zhanaarka — Магазин подгузников</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина — Магазин детских товаров</title>
   <style>
-    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #f0f4f8; color: #333; }
-    header { background: #4CAF50; color: white; padding: 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 28px; }
-    nav { margin-top: 10px; }
-    nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: 600; }
-    nav a:hover { text-decoration: underline; }
-
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px; }
-    .product { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
-    .product img { max-width: 100%; height: auto; border-radius: 8px; }
-    .product h3 { margin: 10px 0 5px; font-size: 18px; }
-    .product p { margin: 5px 0; color: #666; }
-
-    .btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
-    .btn:hover { background: #45a049; }
-
-    #cart { position: fixed; right: 20px; top: 20px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 280px; }
-    #cart h2 { font-size: 18px; margin: 0 0 10px; text-align: center; }
-    #cart ul { list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto; }
-    #cart li { font-size: 14px; margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
-    #checkout { margin-top: 10px; width: 100%; }
-
-    section { padding: 30px 20px; margin: 20px; border-radius: 12px; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    section h2 { margin-top: 0; font-size: 22px; color: #4CAF50; }
-    footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #00bcd4;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #00bcd4;
+      color: white;
+    }
+    button {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0097a7;
+    }
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>BB Kitty zhanaarka</h1>
+    <h1>Корзина</h1>
     <nav>
-      <a href="#catalog">Каталог</a>
-      <a href="#about">О нас</a>
-      <a href="#contacts">Контакты</a>
+      <a href="index.html">Каталог</a>
+      <a href="cart.html">Корзина</a>
     </nav>
   </header>
 
-  <section id="catalog">
-    <h2>Каталог товаров</h2>
-    <div class="products">
-      <div class="product">
-        <img src="https://github.com/marasb28-crypto/bbkitty_zhanaarka/blob/main/BB%20K%20NB.jpg" alt="Подгузники BBkitty" />
-        <h3>BBkitty</h3>
-        <p> NB (до 5 кг), 32шт</p>
-        <p>Цена: 4500 ₸</p>
-        <button class="btn" onclick="addToCart('BBkitty - NB', 4500)">В корзину</button>
-      </div>
+  <div class="container">
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Товар</th>
+          <th>Цена</th>
+          <th>Количество</th>
+          <th>Сумма</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
 
-      <div class="product">
-        <img src="https://via.placeholder.com/220x160" alt="Подгузники Yokosun" />
-        <h3>Yokosun</h3>
-        <p>Цена: 3777 ₸</p>
-        <button class="btn" onclick="addToCart('Yokosun', 3777)">В корзину</button>
-      </div>
-
-      <div class="product">
-        <img src="https://via.placeholder.com/220x160" alt="Подгузники Mello" />
-        <h3>Mello</h3>
-        <p>Цена: 6666 ₸</p>
-        <button class="btn" onclick="addToCart('Mello', 5555)">В корзину</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>О нас</h2>
-    <p>Мы — онлайн-магазин детских товаров. В нашем ассортименте: подгузники, салфетки, средства ухода и игрушки. Мы предлагаем только проверенные бренды: <strong>Mama Znaet, BBkitty, Yokosun, Mello, Sabiko</strong>. Доставка по Жанаарке бесплатно.</p>
-  </section>
-
-  <section id="contacts">
-    <h2>Контакты</h2>
-    <p>📞 Телефон: +7 747 961 31 29</p>
-    <p>💬 WhatsApp: <a href="https://wa.me/77019962042" target="_blank">Написать нам</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 BB Kitty zhanaarka. Все права защищены.</p>
-  </footer>
-
-  <div id="cart">
-    <h2>Корзина</h2>
-    <ul id="cart-items"></ul>
-    <p><strong>Итого: <span id="total">0</span> ₸</strong></p>
-    <button id="checkout" class="btn" onclick="checkout()">Оформить заказ</button>
+    <div class="total" id="total">Итого: 0 ₸</div>
+    <br>
+    <button onclick="checkout()">Оформить заказ через WhatsApp</button>
   </div>
 
   <script>
-    let cart = [];
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const tbody = document.querySelector('#cartTable tbody');
+      tbody.innerHTML = '';
+      let total = 0;
 
-    function addToCart(product, price) {
-      cart.push({ product, price });
-      renderCart();
+      cart.forEach((item, index) => {
+        const row = document.createElement('tr');
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.price} ₸</td>
+          <td>
+            <input type="number" value="${item.qty}" min="1" style="width:60px" onchange="updateQty(${index}, this.value)">
+          </td>
+          <td>${subtotal} ₸</td>
+          <td><button onclick="removeItem(${index})">Удалить</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      document.getElementById('total').textContent = `Итого: ${total} ₸`;
     }
 
-    function renderCart() {
-      const cartItems = document.getElementById('cart-items');
-      const total = document.getElementById('total');
-      cartItems.innerHTML = '';
-      let sum = 0;
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item.product + ' - ' + item.price + ' ₸';
-        cartItems.appendChild(li);
-        sum += item.price;
-      });
-      total.textContent = sum;
+    function updateQty(index, qty) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart[index].qty = parseInt(qty);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
     }
 
     function checkout() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (cart.length === 0) {
-        alert('Корзина пуста!');
+        alert('Корзина пуста');
         return;
       }
-      let message = 'Здравствуйте! Хочу заказать:%0A';
+      let message = 'Здравствуйте! Хочу заказать:\n';
       cart.forEach(item => {
-        message += '- ' + item.product + ' (' + item.price + ' ₸)%0A';
+        message += `${item.name} — ${item.qty} шт = ${item.price * item.qty} ₸\n`;
       });
-      let total = cart.reduce((sum, item) => sum + item.price, 0);
-      message += 'Итого: ' + total + ' ₸';
-
-      // Вставь сюда свой номер WhatsApp (в формате 77001234567)
-      window.open('https://wa.me/77019962042?text=' + message, '_blank');
+      const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+      message += `\nИтого: ${total} ₸`;
+      const phone = '7700XXXXXXX'; // ← замени на свой номер
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
     }
+
+    loadCart();
   </script>
 </body>
 </html>
