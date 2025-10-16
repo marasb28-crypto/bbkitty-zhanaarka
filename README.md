@@ -61,6 +61,18 @@
       font-size: 18px;
       font-weight: bold;
     }
+    .back-button {
+      display: inline-block;
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    .back-button:hover {
+      background-color: #43a047;
+    }
   </style>
 </head>
 <body>
@@ -89,6 +101,8 @@
     <div class="total" id="total">Итого: 0 ₸</div>
     <br>
     <button onclick="checkout()">Оформить заказ через WhatsApp</button>
+    <br><br>
+    <a href="index.html" class="back-button">← Назад в каталог</a>
   </div>
 
   <script>
