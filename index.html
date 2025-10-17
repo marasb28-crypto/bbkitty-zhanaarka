@@ -106,7 +106,13 @@ function render(list){
   list.forEach((p, idx)=>{
     const div = document.createElement('div');
     div.className = 'card';
-    div.innerHTML = '<img src="'+p.img+'" alt="'+p.name+'"><h3>'+p.name+'</h3><p>'+p.price+' ₸</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="addToCart(\''+p.name+'\','+p.price+')">Добавить в корзину</button><a class="btn" style="text-decoration:none" href="https://wa.me/77019962042?text='+encodeURIComponent('Здравствуйте! Хочу оформить заказ: '+p.name+' — 1 шт')+'" target="_blank">Написать в WhatsApp</a></div>';
+    div.innerHTML =
+  '<img src="' + p.img + '" alt="' + p.name + '">' +
+  '<h3>' + p.name + '</h3>' +
+  '<p>' + p.price + ' ₸</p>' +
+  '<div style="display:flex;gap:8px;justify-content:center">' +
+    '<button class="btn" onclick="addToCart(\'' + p.name + '\',' + p.price + ')">Добавить в корзину</button>' +
+  '</div>';
     grid.appendChild(div);
   });
 }
