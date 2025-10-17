@@ -1,48 +1,147 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Корзина — BB Kitty Zhanaarka</title>
 <link rel="icon" href="favicon.ico">
 <style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(180deg,#ffdfe6,#dff4ff);color:#222}
-.header{padding:18px;text-align:center}
-.container{max-width:960px;margin:20px auto;background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-.table{width:100%;border-collapse:collapse}
-.table th{background:#ff80ab;color:#fff;padding:10px;text-align:left}
-.table td{padding:10px;border-bottom:1px solid #eee}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+  background:linear-gradient(180deg,#ffdfe6,#dff4ff);
+  color:#222;
+}
+.header{
+  padding:18px;
+  text-align:center;
+}
+.container{
+  max-width:960px;
+  margin:20px auto;
+  background:#fff;
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+.table{
+  width:100%;
+  border-collapse:collapse;
+}
+.table th{
+  background:#ff80ab;
+  color:#fff;
+  padding:10px;
+  text-align:left;
+}
+.table td{
+  padding:10px;
+  border-bottom:1px solid #eee;
+}
 .qty{width:80px}
-.btn-order{background:linear-gradient(90deg,#29b6f6,#ff80ab);color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
-.back{display:inline-block;margin-top:12px;text-decoration:none;color:#555}
-.card-img{width:80px;height:60px;object-fit:cover;border-radius:6px}
-@media(max-width:600px){ .card-img{width:60px;height:48px} }
+.btn-order{
+  background:linear-gradient(90deg,#29b6f6,#ff80ab);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  transition:0.3s;
+}
+.btn-order:hover{opacity:0.9}
+.back{
+  display:inline-block;
+  margin-top:12px;
+  text-decoration:none;
+  color:#555;
+}
+.card-img{
+  width:80px;
+  height:60px;
+  object-fit:cover;
+  border-radius:6px;
+}
+input, textarea{
+  width:100%;
+  padding:10px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  margin-bottom:10px;
+}
+@media(max-width:600px){
+  .table thead{display:none;}
+  .table, .table tbody, .table tr, .table td{
+    display:block;
+    width:100%;
+  }
+  .table tr{
+    margin-bottom:15px;
+    border:1px solid #eee;
+    border-radius:10px;
+    padding:10px;
+  }
+  .table td{
+    border:none;
+    padding:6px 10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .table td::before{
+    content:attr(data-label);
+    font-weight:bold;
+    color:#555;
+  }
+  input[type="number"]{
+    width:60px;
+    padding:4px;
+  }
+  .btn-order{
+    width:100%;
+    font-size:16px;
+    padding:14px;
+  }
+}
 </style>
 </head>
 <body>
 <header class="header"><h1>Корзина — BB Kitty Zhanaarka</h1></header>
+
 <main class="container">
   <table class="table" id="cartTable">
-    <thead><tr><th>Товар</th><th>Цена</th><th>Кол-во</th><th>Сумма</th><th></th></tr></thead>
+    <thead>
+      <tr><th>Товар</th><th>Цена</th><th>Кол-во</th><th>Сумма</th><th></th></tr>
+    </thead>
     <tbody></tbody>
   </table>
-  <div style="text-align:right;margin-top:12px"><strong id="total">Итого: 0 ₸</strong></div>
-  <div style="margin-top:12px">
+
+  <div style="text-align:right;margin-top:12px">
+    <strong id="total">Итого: 0 ₸</strong>
+  </div>
+
+  <div style="margin-top:20px">
     <h3>Введите данные для заказа:</h3>
-<form id="orderForm">
-  <label>Имя:</label><br>
-  <input type="text" id="customerName" placeholder="Ваше имя" required><br><br>
+    <form id="orderForm">
+      <label>Имя:</label>
+      <input type="text" id="customerName" placeholder="Ваше имя" required>
 
-  <label>Телефон:</label><br>
-  <input type="tel" id="customerPhone" placeholder="+7 701 ..." required><br><br>
+      <label>Телефон:</label>
+      <input type="tel" id="customerPhone" placeholder="+7 701 ..." required>
 
-  <label>Адрес доставки:</label><br>
-  <textarea id="customerAddress" rows="3" placeholder="г. Жанаарка, ул. ..." required></textarea><br><br>
-</form>
+      <label>Адрес доставки:</label>
+      <textarea id="customerAddress" rows="3" placeholder="г. Улытау, п. Жанаарка, ул. ..." required></textarea>
+    </form>
+
     <button class="btn-order" onclick="checkout()">Оформить заказ через WhatsApp</button>
     <a class="back" href="index.html">← Вернуться в каталог</a>
   </div>
 </main>
-<footer style="text-align:center;color:#666;padding:12px">© 2025 BB Kitty Zhanaarka</footer>
+
+<footer style="text-align:center;color:#666;padding:12px">
+  © 2025 BB Kitty Zhanaarka
+</footer>
 
 <script>
 function render(){
@@ -54,7 +153,13 @@ function render(){
     const sum = it.price * it.qty;
     total += sum;
     const tr = document.createElement('tr');
-    tr.innerHTML = '<td><img src="images/'+it.name.split(' ')[0]+'.jpg" class="card-img" alt=""><strong>'+it.name+'</strong></td><td>'+it.price+' ₸</td><td><input type="number" min="1" value="'+it.qty+'" onchange="update('+idx+', this.value)"></td><td>'+sum+' ₸</td><td><button onclick="removeItem('+idx+')">Удалить</button></td>';
+    tr.innerHTML = `
+      <td data-label="Товар"><img src="images/${it.name.split(' ')[0]}.jpg" class="card-img" alt=""><strong>${it.name}</strong></td>
+      <td data-label="Цена">${it.price} ₸</td>
+      <td data-label="Кол-во"><input type="number" min="1" value="${it.qty}" onchange="update(${idx}, this.value)"></td>
+      <td data-label="Сумма">${sum} ₸</td>
+      <td data-label="Действие"><button onclick="removeItem(${idx})">Удалить</button></td>
+    `;
     tbody.appendChild(tr);
   });
   document.getElementById('total').textContent = 'Итого: ' + total + ' ₸';
@@ -78,6 +183,7 @@ function checkout() {
   const address = document.getElementById('customerAddress').value;
 
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  if(cart.length === 0){ alert('Ваша корзина пуста'); return; }
 
   let message = '🛍 *Новый заказ через сайт BB Kitty Zhanaarka*%0A';
   message += '👤 Имя: ' + name + '%0A';
