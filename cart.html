@@ -154,7 +154,7 @@ function render(){
     total += sum;
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td data-label="Товар"><img src="images/${it.name.split(' ')[0]}.jpg" class="card-img" alt=""><strong>${it.name}</strong></td>
+      <td data-label="Товар"><strong>${it.name}</strong></td>
       <td data-label="Цена">${it.price} ₸</td>
       <td data-label="Кол-во"><input type="number" min="1" value="${it.qty}" onchange="update(${idx}, this.value)"></td>
       <td data-label="Сумма">${sum} ₸</td>
