@@ -77,6 +77,8 @@ function checkout() {
   const phone = document.getElementById('customerPhone').value;
   const address = document.getElementById('customerAddress').value;
 
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
   let message = '🛍 *Новый заказ через сайт BB Kitty Zhanaarka*%0A';
   message += '👤 Имя: ' + name + '%0A';
   message += '📞 Телефон: ' + phone + '%0A';
@@ -84,10 +86,10 @@ function checkout() {
   message += '🧾 Товары:%0A';
 
   cart.forEach(item => {
-    message += '- ' + item.name + ' — ' + item.price + ' ₸ x ' + item.quantity + '%0A';
+    message += '- ' + item.name + ' — ' + item.price + ' ₸ x ' + item.qty + '%0A';
   });
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   message += '%0A💰 Итого: ' + total + ' ₸';
 
   window.open('https://wa.me/77019962042?text=' + message, '_blank');
