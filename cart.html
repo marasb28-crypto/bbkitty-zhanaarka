@@ -27,6 +27,17 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
   </table>
   <div style="text-align:right;margin-top:12px"><strong id="total">Итого: 0 ₸</strong></div>
   <div style="margin-top:12px">
+    <h3>Введите данные для заказа:</h3>
+<form id="orderForm">
+  <label>Имя:</label><br>
+  <input type="text" id="customerName" placeholder="Ваше имя" required><br><br>
+
+  <label>Телефон:</label><br>
+  <input type="tel" id="customerPhone" placeholder="+7 701 ..." required><br><br>
+
+  <label>Адрес доставки:</label><br>
+  <textarea id="customerAddress" rows="3" placeholder="г. Жанаарка, ул. ..." required></textarea><br><br>
+</form>
     <button class="btn-order" onclick="checkout()">Оформить заказ через WhatsApp</button>
     <a class="back" href="index.html">← Вернуться в каталог</a>
   </div>
@@ -61,16 +72,25 @@ function removeItem(idx){
   localStorage.setItem('cart', JSON.stringify(cart));
   render();
 }
-function checkout(){
-  let cart = JSON.parse(localStorage.getItem('cart')||'[]');
-  if(cart.length===0){ alert('Корзина пуста'); return; }
-  let msg = 'Здравствуйте! Хочу оформить заказ:%0A';
-  cart.forEach(it=>{ msg += encodeURIComponent(it.name) + ' — ' + it.qty + ' шт — ' + (it.price*it.qty) + ' ₸%0A'; });
-  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-  msg += '%0AИтого: ' + total + ' ₸';
-  const phone = '77019962042';
-  const url = 'https://wa.me/' + phone + '?text=' + msg;
-  window.open(url, '_blank');
+function checkout() {
+  const name = document.getElementById('customerName').value;
+  const phone = document.getElementById('customerPhone').value;
+  const address = document.getElementById('customerAddress').value;
+
+  let message = '🛍 *Новый заказ через сайт BB Kitty Zhanaarka*%0A';
+  message += '👤 Имя: ' + name + '%0A';
+  message += '📞 Телефон: ' + phone + '%0A';
+  message += '📍 Адрес: ' + address + '%0A%0A';
+  message += '🧾 Товары:%0A';
+
+  cart.forEach(item => {
+    message += '- ' + item.name + ' — ' + item.price + ' ₸ x ' + item.quantity + '%0A';
+  });
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  message += '%0A💰 Итого: ' + total + ' ₸';
+
+  window.open('https://wa.me/77019962042?text=' + message, '_blank');
 }
 render();
 </script>
