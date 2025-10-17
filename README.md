@@ -1,0 +1,1 @@
+BB Kitty Zhanaarka\n\nЛокальный сайт магазина подгузников.\n\nКак открыть:\n1. Распакуйте архив.\n2. Откройте index.html в браузере.\n\nКонтакты:\nWhatsApp: +7 701 996 2042\nInstagram: @bbkitty_zhanaarka\n

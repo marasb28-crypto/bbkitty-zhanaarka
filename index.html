@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BB Kitty Zhanaarka</title>
+<link rel="icon" href="favicon.ico">
+<style>
+:root{--pink:#ffdfe6;--blue:#dff4ff;--accent:#ff80ab;--accent2:#29b6f6}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(180deg,var(--pink),var(--blue));color:#222}
+.header{padding:18px 12px;text-align:center}
+.banner{max-width:1100px;margin:0 auto;background:#fff;border-radius:14px;padding:12px;display:flex;align-items:center;gap:16px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+.banner img{width:160px;height:96px;object-fit:cover;border-radius:10px}
+.title{font-size:26px;color:#ff5c9e;margin:0}
+.subtitle{font-size:14px;color:#666;margin-top:4px}
+.controls{max-width:1100px;margin:16px auto;padding:0 12px;display:flex;justify-content:space-between;align-items:center}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{background:#fff;border:1px solid #eee;padding:8px 12px;border-radius:10px;cursor:pointer}
+.cart-link{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700}
+.container{max-width:1100px;margin:0 auto;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:#fff;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:center}
+.card img{width:100%;height:160px;object-fit:contain;background:#fff;border-radius:8px}
+.card h3{font-size:16px;margin:10px 0 6px}
+.card p{margin:4px;color:#666}
+.btn{background:linear-gradient(90deg,var(--accent2),var(--accent));border:none;color:#fff;padding:8px 10px;border-radius:10px;cursor:pointer;font-weight:700}
+.footer{max-width:1100px;margin:30px auto;text-align:center;color:#666;padding:12px}
+@media(max-width:600px){
+ .banner{flex-direction:column;align-items:flex-start}
+ .banner img{width:120px;height:72px}
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="https://instagram.com/bbkitty_zhanaarka" target="_blank" style="text-decoration:none">
+    <div class="banner" onclick="location.href='https://instagram.com/bbkitty_zhanaarka'">
+      <img src="images/banner.png" alt="BB Kitty banner">
+      <div>
+        <h1 class="title">BB Kitty Zhanaarka</h1>
+        <div class="subtitle">Интернет-магазин подгузников и детских товаров — п. Жанаарка, Улытауская область</div>
+        <div style="margin-top:8px"><a class="cart-link" href="#catalog" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Перейти к товарам</a></div>
+      </div>
+    </div>
+  </a>
+</header>
+
+<div class="controls">
+  <div class="filters" id="filters"></div>
+  <a class="cart-link" href="cart.html">Перейти в корзину 🛒</a>
+</div>
+
+<main class="container">
+  <section id="catalog">
+    <div class="grid" id="products"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  Контакты: <a href="https://instagram.com/bbkitty_zhanaarka" target="_blank">@bbkitty_zhanaarka</a> — WhatsApp: <a href="https://wa.me/77019962042">+7 701 996 2042</a>
+  <div style="margin-top:8px;font-size:13px;color:#999">© 2025 BB Kitty Zhanaarka</div>
+</footer>
+
+<script>
+const products = [
+  {name: 'BB Kitty класик NB подгузники', brand: 'BB', size: 'NB', type: 'подгузники', price: 3500, img: 'images/BB.jpg'},
+  {name: 'BB Kitty класик S подгузники', brand: 'BB', size: 'S', type: 'подгузники', price: 6800, img: 'images/BB.jpg'},
+  {name: 'Sabiko M подгузники', brand: 'Sabiko', size: 'M', type: 'подгузники', price: 6500, img: 'images/Sabiko.jpg'},
+  {name: 'Yokosan NB подгузники', brand: 'Yokosan', size: 'NB', type: 'подгузники', price: 3300, img: 'images/Yokosan.jpg'},
+  {name: 'Mello NB подгузники', brand: 'Mello', size: 'NB', type: 'подгузники', price: 3900, img: 'images/Mello.jpg'},
+  {name: 'MITTIKO M подгузники', brand: 'MITTIKO', size: 'M', type: 'подгузники', price: 5950, img: 'images/MITTIKO.jpg'},
+  {name: 'NIKKO L подгузники', brand: 'NIKKO', size: 'L', type: 'подгузники', price: 6200, img: 'images/NIKKO.jpg'},
+  {name: 'МАМА ЗНАЕТ НБ подгузники', brand: 'МАМА', size: 'НБ', type: 'подгузники', price: 6800, img: 'images/МАМА.jpg'},
+ ];
+
+const brands = Array.from(new Set(products.map(p=>p.brand)));
+const filtersDiv = document.getElementById('filters');
+filtersDiv.innerHTML = '<button class="filter-btn" onclick="showAll()">Все</button>';
+brands.forEach(b=>{
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn';
+  btn.textContent = b;
+  btn.onclick = ()=> filterByBrand(b);
+  filtersDiv.appendChild(btn);
+});
+
+function showAll(){ render(products); }
+function filterByBrand(b){ render(products.filter(p=>p.brand===b)); }
+
+function render(list){
+  const grid = document.getElementById('products');
+  grid.innerHTML = '';
+  list.forEach((p, idx)=>{
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = '<img src="'+p.img+'" alt="'+p.name+'"><h3>'+p.name+'</h3><p>'+p.price+' ₸</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="addToCart(\''+p.name+'\','+p.price+')">Добавить в корзину</button><a class="btn" style="text-decoration:none" href="https://wa.me/77019962042?text='+encodeURIComponent('Здравствуйте! Хочу оформить заказ: '+p.name+' — 1 шт')+'" target="_blank">Написать в WhatsApp</a></div>';
+    grid.appendChild(div);
+  });
+}
+
+function addToCart(name, price){
+  let cart = JSON.parse(localStorage.getItem('cart')||'[]');
+  const idx = cart.findIndex(i=>i.name===name);
+  if(idx>-1) cart[idx].qty += 1;
+  else cart.push({name, price, qty:1});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + ' добавлен в корзину');
+}
+
+showAll();
+</script>
+
+</body>
+</html>
