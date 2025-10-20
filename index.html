@@ -28,6 +28,35 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
 .card p{margin:4px;color:#666}
 .btn{background:linear-gradient(90deg,var(--accent2),var(--accent));border:none;color:#fff;padding:8px 10px;border-radius:10px;cursor:pointer;font-weight:700}
 .footer{max-width:1100px;margin:30px auto;text-align:center;color:#666;padding:12px}
+   .cart-icon {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #ff69b4;
+  color: white;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1000;
+  transition: background 0.2s;
+}
+  .cart-icon:hover {
+  background: #ff4fa1;
+}
+
+#cart-count {
+  background: white;
+  color: #ff69b4;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
 @media(max-width:600px){
  .banner{flex-direction:column;align-items:flex-start}
  .banner img{width:120px;height:72px}
@@ -57,35 +86,7 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
   background: #ccc;
   cursor: not-allowed;
 }
-  .cart-icon {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: #ff69b4;
-  color: white;
-  font-size: 20px;
-  padding: 10px 15px;
-  border-radius: 50px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 1000;
-  transition: background 0.2s;
-}
-  .cart-icon:hover {
-  background: #ff4fa1;
-}
-
-#cart-count {
-  background: white;
-  color: #ff69b4;
-  border-radius: 50%;
-  padding: 2px 8px;
-  font-weight: bold;
-  font-size: 14px;
-}
+ 
 }
 </style>
 </head>
