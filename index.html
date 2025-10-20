@@ -190,7 +190,8 @@ function render(list){
     <button class="btn" onclick="addToCart('${p.name}', ${p.price})" ${!p.available ? 'disabled' : ''}>
       ${p.available ? 'Добавить в корзину' : 'Недоступно'}
     </button>
-  </div>;
+  </div>
+  `;
     grid.appendChild(div);
   });
 }
