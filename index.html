@@ -57,10 +57,42 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
   background: #ccc;
   cursor: not-allowed;
 }
+  .cart-icon {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #ff69b4;
+  color: white;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1000;
+  transition: background 0.2s;
+}
+  .cart-icon:hover {
+  background: #ff4fa1;
+}
+
+#cart-count {
+  background: white;
+  color: #ff69b4;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
 }
 </style>
 </head>
 <body>
+  <div class="cart-icon" onclick="openCart()">
+    🛒 <span id="cart-count">0</span>
+  </div>
 <header class="header">
 </header>
 
@@ -213,7 +245,28 @@ function render(list){
     ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
     <h3>${p.name}</h3>
     <p>${p.price} ₸</p>
-    <button class="btn" onclick="addToCart('${p.name}', ${p.price})" ${!p.available ? 'disabled' : ''}>
+    <button class="btn" onclick="addToCart(let cart = [];
+
+function addToCart(name, price) {
+  const item = cart.find(i => i.name === name);
+  if (item) {
+    item.quantity++;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+  updateCartCount();
+  alert(`${name} добавлен в корзину`);
+}
+
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById('cart-count').textContent = count;
+}
+
+function openCart() {
+  // здесь можно открыть всплывающее окно или модальное окно корзины
+  alert('Открыть корзину (функция в разработке)');
+})" ${!p.available ? 'disabled' : ''}>
       ${p.available ? 'Добавить в корзину' : 'Недоступно'}
     </button>
   </div>
