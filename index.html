@@ -31,6 +31,32 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
 @media(max-width:600px){
  .banner{flex-direction:column;align-items:flex-start}
  .banner img{width:120px;height:72px}
+  .product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.out-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(255, 0, 0, 0.85);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.product-card.out-of-stock img {
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+.product-card button[disabled] {
+  background: #ccc;
+  cursor: not-allowed;
+}
 }
 </style>
 </head>
