@@ -237,41 +237,20 @@ function filterByBrand(b){ render(products.filter(p=>p.brand===b)); }
 function render(list){
   const grid = document.getElementById('products');
   grid.innerHTML = '';
-  list.forEach((p, idx)=>{
+  list.forEach(p=>{
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-  <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
-    <img src="${p.img}" alt="${p.name}">
-    ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
-    <h3>${p.name}</h3>
-    <p>${p.price} ₸</p>
-    <button class="btn" onclick="addToCart(let cart = [];
-
-function addToCart(name, price) {
-  const item = cart.find(i => i.name === name);
-  if (item) {
-    item.quantity++;
-  } else {
-    cart.push({ name, price, quantity: 1 });
-  }
-  updateCartCount();
-  alert(`${name} добавлен в корзину`);
-}
-
-function updateCartCount() {
-  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  document.getElementById('cart-count').textContent = count;
-}
-
-function openCart() {
-  // здесь можно открыть всплывающее окно или модальное окно корзины
-  alert('Открыть корзину (функция в разработке)');
-})" ${!p.available ? 'disabled' : ''}>
-      ${p.available ? 'Добавить в корзину' : 'Недоступно'}
-    </button>
-  </div>
-  `;
+      <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
+        <img src="${p.img}" alt="${p.name}">
+        ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
+        <h3>${p.name}</h3>
+        <p>${p.price} ₸</p>
+        <button class="btn" onclick="addToCart('${p.name}', ${p.price})" ${!p.available ? 'disabled' : ''}>
+          ${p.available ? 'Добавить в корзину' : 'Недоступно'}
+        </button>
+      </div>
+    `;
     grid.appendChild(div);
   });
 }
@@ -282,9 +261,20 @@ function addToCart(name, price){
   if(idx>-1) cart[idx].qty += 1;
   else cart.push({name, price, qty:1});
   localStorage.setItem('cart', JSON.stringify(cart));
-  alert(name + ' добавлен в корзину');
+  updateCartCount();
 }
 
+function updateCartCount(){
+  const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+  const count = cart.reduce((sum, i)=>sum+i.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+}
+
+function openCart(){
+  window.location.href = 'cart.html';
+}
+
+updateCartCount(); // ← чтобы после обновления страницы число не сбрасывалось
 showAll();
 </script>
 
