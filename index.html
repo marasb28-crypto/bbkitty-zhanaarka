@@ -181,20 +181,16 @@ function render(list){
   list.forEach((p, idx)=>{
     const div = document.createElement('div');
     div.className = 'card';
-    div.innerHTML =
-      <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
+    div.innerHTML = `
+  <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
     <img src="${p.img}" alt="${p.name}">
     ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
     <h3>${p.name}</h3>
     <p>${p.price} ₸</p>
     <button class="btn" onclick="addToCart('${p.name}', ${p.price})" ${!p.available ? 'disabled' : ''}>
       ${p.available ? 'Добавить в корзину' : 'Недоступно'}
-  '<img src="' + p.img + '" alt="' + p.name + '">' +
-  '<h3>' + p.name + '</h3>' +
-  '<p>' + p.price + ' ₸</p>' +
-  '<div style="display:flex;gap:8px;justify-content:center">' +
-    '<button class="btn" onclick="addToCart(\'' + p.name + '\',' + p.price + ')">Добавить в корзину</button>' +
-  '</div>';
+    </button>
+  </div>;
     grid.appendChild(div);
   });
 }
