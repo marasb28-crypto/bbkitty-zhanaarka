@@ -150,12 +150,7 @@ function render(){
     total += sum;
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <img src="${it.image}" class="card-img" alt="">
-          <span>${it.name}</span>
-        </div>
-      </td>
+      <td>${it.name}</td>
       <td>${it.price} ₸</td>
       <td>
         <div class="qty-controls">
