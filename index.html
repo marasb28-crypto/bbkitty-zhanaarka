@@ -86,7 +86,12 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
   background: #ccc;
   cursor: not-allowed;
 }
- 
+ .product-card .desc {
+  font-size: 13px;
+  color: #666;
+  margin: 6px 0 10px;
+  min-height: 32px;
+}
 }
 </style>
 </head>
@@ -253,17 +258,17 @@ function render(list){
   list.forEach(p=>{
     const div = document.createElement('div');
     div.className = 'card';
-    div.innerHTML = `
-      <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
-        <img src="${p.img}" alt="${p.name}">
-        ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
-        <h3>${p.name}</h3>
-        <p>${p.price} ₸</p>
-        <button class="btn" onclick="addToCart('${p.name}', ${p.price})" ${!p.available ? 'disabled' : ''}>
-          ${p.available ? 'Добавить в корзину' : 'Недоступно'}
-        </button>
-      </div>
-    `;
+   div.innerHTML = `
+  <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
+    <img src="${p.img}" alt="${p.name}">
+    ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
+    <h3>${p.name}</h3>
+    <p class="desc">${p.desc || ''}</p>
+    <p class="price">${p.price} ₸</p>
+    <button class="btn" onclick="addToCart('${p.name}', ${p.price})" ${!p.available ? 'disabled' : ''}>
+      ${p.available ? 'Добавить в корзину' : 'Недоступно'}
+    </button>
+  </div>`;
     grid.appendChild(div);
   });
 }
