@@ -257,7 +257,11 @@ brands.forEach(b=>{
   filtersDiv.appendChild(btn);
 });
 
-function showAll(){ render(products); }
+function showAll(){ products.forEach(p => {
+  if (p.type === 'подгузники' || p.type === 'трусики') {
+    p.type = 'подгузники и трусики';
+  }
+}); render(products); }
 function filterByBrand(b){ render(products.filter(p=>p.brand===b)); }
 
 function render(list){
