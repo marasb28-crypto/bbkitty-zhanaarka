@@ -134,25 +134,23 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
 
 <script>
 const products = [
-  {name: 'BB Kitty premium NB подгузники', brand: 'BB Kitty premium', size: 'NB', type: 'подгузники', price: 3500, img: 'images/BBPNB.webp', desc:'(до 5 кг, 32 шт)', available: true },
-  {name: 'BB Kitty premium S подгузники', brand: 'BB Kitty premium', size: 'S', type: 'подгузники', price: 6600, img: 'images/BBPS.webp', available: true },
-  {name: 'BB Kitty premium M подгузники', brand: 'BB Kitty premium', size: 'M', type: 'подгузники', price: 6600, img: 'images/BBPM.webp', available: true },
-  {name: 'BB Kitty premium L подгузники', brand: 'BB Kitty premium', size: 'L', type: 'подгузники', price: 6600, img: 'images/BBPL.webp', available: true },
-  {name: 'BB Kitty premium XL подгузники', brand: 'BB Kitty premium', size: 'XL', type: 'подгузники', price: 6600, img: 'images/BBPXL.webp', available: true },
-  
-  {name: 'BB Kitty premium L трусики', brand: 'BB Kitty premium', size: 'L', type: 'трусики', price: 6800, img: 'images/BBPL1.webp', available: true },
-  {name: 'BB Kitty premium XL трусики', brand: 'BB Kitty premium', size: 'XL', type: 'трусики', price: 6800, img: 'images/BBPXL1.webp', available: true },
-  {name: 'BB Kitty premium XXL трусики', brand: 'BB Kitty premium', size: 'XXL', type: 'трусики', price: 6800, img: 'images/BBPXXL1.webp', available: true },
-  {name: 'BB Kitty premium XXXL трусики', brand: 'BB Kitty premium', size: 'XXXL', type: 'трусики', price: 6800, img: 'images/BBPXXXL1.webp', available: true },
+  {name: 'подгузники BB Kitty premium NB', brand: 'BB Kitty premium', size: 'NB', type: 'подгузники', price: 3500, img: 'images/BBPNB.webp', desc:'(до 5 кг, 32 шт)', available: true },
+{name: 'подгузники BB Kitty premium S', brand: 'BB Kitty premium', size: 'S', type: 'подгузники', price: 6600, img: 'images/BBPS.webp', desc:'(4-8 кг, 60-64 шт)', available: true },
+{name: 'подгузники BB Kitty premium M', brand: 'BB Kitty premium', size: 'M', type: 'подгузники', price: 6600, img: 'images/BBPM.webp', desc:'(6-11 кг, 52-56 шт)', available: true },
+{name: 'подгузники BB Kitty premium L', brand: 'BB Kitty premium', size: 'L', type: 'подгузники', price: 6600, img: 'images/BBPL.webp', desc:'(9-14 кг, 46-50 шт)', available: true },
+{name: 'подгузники BB Kitty premium XL', brand: 'BB Kitty premium', size: 'XL', type: 'подгузники', price: 6600, img: 'images/BBPXL.webp', desc:'(12-17 кг, 44 шт)', available: true },
+{name: 'трусики BB Kitty premium L', brand: 'BB Kitty premium', size: 'L', type: 'трусики', price: 6800, img: 'images/BBPL1.webp', desc:'(9-14 кг, 46 шт)', available: true },
+{name: 'трусики BB Kitty premium XL', brand: 'BB Kitty premium', size: 'XL', type: 'трусики', price: 6800, img: 'images/BBPXL1.webp', desc:'(12-17 кг, 44 шт)', available: true },
+{name: 'трусики BB Kitty premium XXL', brand: 'BB Kitty premium', size: 'XXL', type: 'трусики', price: 6800, img: 'images/BBPXXL1.webp', desc:'(15+ кг, 40 шт)', available: true },
+{name: 'трусики BB Kitty premium XXXL', brand: 'BB Kitty premium', size: 'XXXL', type: 'трусики', price: 6800, img: 'images/BBPXXXL1.webp', desc:'(17+ кг, 32 шт)', available: true },
+{name: 'подгузники BB Kitty sensitive S', brand: 'BB Kitty sensitive', size: 'S', type: 'подгузники', price: 6200, img: 'images/Diapers-S.png.webp', desc:'(4-8 кг, 64 шт)', available: true },
+{name: 'подгузники BB Kitty sensitive M', brand: 'BB Kitty sensitive', size: 'M', type: 'подгузники', price: 6200, img: 'images/Diapers-M.png.webp', desc:'(6-11 кг, 56 шт)', available: true },
+{name: 'подгузники BB Kitty sensitive L', brand: 'BB Kitty sensitive', size: 'L', type: 'подгузники', price: 6200, img: 'images/Diapers-L.png.webp', desc:'(9-14 кг, 50 шт)', available: true },
+{name: 'трусики BB Kitty sensitive L', brand: 'BB Kitty sensitive', size: 'L', type: 'трусики', price: 6600, img: 'images/Pants-L.png.webp', desc:'(9-14 кг, 50 шт)', available: true },
+{name: 'трусики BB Kitty sensitive XL', brand: 'BB Kitty sensitive', size: 'XL', type: 'трусики', price: 6600, img: 'images/Pants-XL.png.webp', desc:'(12-17 кг, 48 шт)', available: true },
+{name: 'трусики BB Kitty sensitive XXL', brand: 'BB Kitty sensitive', size: 'XXL', type: 'трусики', price: 6600, img: 'images/Pants-XXL.png.webp', desc:'(15+ кг, 44 шт)', available: true },
+{name: 'трусики BB Kitty sensitive XXXL', brand: 'BB Kitty sensitive', size: 'XXXL', type: 'трусики', price: 6600, img: 'images/Pants-XXXL.png.webp', desc:'(17+ кг, 40 шт)', available: true },
 
-  {name: 'BB Kitty sensitive S подгузники', brand: 'BB Kitty sensitive', size: 'S', type: 'подгузники', price: 6200, img: 'images/Diapers-S.png.webp', available: true },
-  {name: 'BB Kitty sensitive M подгузники', brand: 'BB Kitty sensitive', size: 'M', type: 'подгузники', price: 6200, img: 'images/Diapers-M.png.webp', available: true },
-  {name: 'BB Kitty sensitive L подгузники', brand: 'BB Kitty sensitive', size: 'L', type: 'подгузники', price: 6200, img: 'images/Diapers-L.png.webp', available: true },
-
-  {name: 'BB Kitty sensitive L трусики', brand: 'BB Kitty sensitive', size: 'L', type: 'трусики', price: 6600, img: 'images/Pants-L.png.webp', available: true },
-  {name: 'BB Kitty sensitive XL трусики', brand: 'BB Kitty sensitive', size: 'XL', type: 'трусики', price: 6600, img: 'images/Pants-XL.png.webp', available: true },
-  {name: 'BB Kitty sensitive XXL трусики', brand: 'BB Kitty sensitive', size: 'XXL', type: 'трусики', price: 6600, img: 'images/Pants-XXL.png.webp', available: true },
-  {name: 'BB Kitty sensitive XXXL трусики', brand: 'BB Kitty sensitive', size: 'XXXL', type: 'трусики', price: 6600, img: 'images/Pants-XXXL.png.webp', available: true },
   
   {name: 'Sabiko NB подгузники', brand: 'Sabiko', size: 'NB', type: 'подгузники', price: 6500, img: 'images/SABNB.webp', available: true },
   {name: 'Sabiko S подгузники', brand: 'Sabiko', size: 'S', type: 'подгузники', price: 6500, img: 'images/SABS.webp', available: true },
