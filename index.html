@@ -92,6 +92,18 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
   margin: 6px 0 10px;
   min-height: 32px;
 }
+  .old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 14px;
+  margin-right: 6px;
+}
+
+.new-price {
+  color: #e60073;
+  font-weight: bold;
+  font-size: 16px;
+}
 }
 </style>
 </head>
@@ -183,16 +195,16 @@ const products = [
 {name: 'трусики MITTIKO L', brand: 'MITTIKO', size: 'L', type: 'трусики', price: 5950, img: 'images/mitL1.jpg', desc:'(9-14 кг, 46 шт)', available: true },
 {name: 'трусики MITTIKO XL', brand: 'MITTIKO', size: 'XL', type: 'трусики', price: 5950, img: 'images/mitXL1.jpg', desc:'(12-17 кг, 42 шт)', available: true },
 {name: 'трусики MITTIKO XXL', brand: 'MITTIKO', size: 'XXL', type: 'трусики', price: 5950, img: 'images/mitXXL1.jpg', desc:'(15+ кг, 38 шт)', available: true },
-{name: 'подгузники NIKKO S', brand: 'NIKKO', size: 'S', type: 'подгузники', price: 6200, img: 'images/nikS.jpg', desc:'(4-8 кг, 64 шт)', available: true },
-{name: 'подгузники NIKKO M', brand: 'NIKKO', size: 'M', type: 'подгузники', price: 6200, img: 'images/nikM.jpg', desc:'(6-11 кг, 52 шт)', available: true },
-{name: 'подгузники NIKKO L', brand: 'NIKKO', size: 'L', type: 'подгузники', price: 6200, img: 'images/nikL.jpg', desc:'(9-14 кг, 48 шт)', available: true },
-{name: 'подгузники NIKKO XL', brand: 'NIKKO', size: 'XL', type: 'подгузники', price: 6200, img: 'images/nikXL.jpg', desc:'(12-18 кг, 42 шт)', available: true },
-{name: 'подгузники NIKKO XXL', brand: 'NIKKO', size: 'XXL', type: 'подгузники', price: 6200, img: 'images/nikXXL.jpg', desc:'(13-20 кг, 38 шт)', available: true },
-{name: 'трусики NIKKO M', brand: 'NIKKO', size: 'M', type: 'трусики', price: 6500, img: 'images/nikM1.jpg', desc:'(6-11 кг, 50 шт)', available: true },
-{name: 'трусики NIKKO L', brand: 'NIKKO', size: 'L', type: 'трусики', price: 6500, img: 'images/nikL1.jpg', desc:'(9-14 кг, 46 шт)', available: true },
-{name: 'трусики NIKKO XL', brand: 'NIKKO', size: 'XL', type: 'трусики', price: 6500, img: 'images/nikXL1.jpg', desc:'(12-18 кг, 42 шт)', available: true },
-{name: 'трусики NIKKO XXL', brand: 'NIKKO', size: 'XXL', type: 'трусики', price: 6500, img: 'images/nikXXL1.jpg', desc:'(15+ кг, 38 шт)', available: true },
-{name: 'трусики NIKKO XXXL', brand: 'NIKKO', size: 'XXXL', type: 'трусики', price: 6500, img: 'images/nikXXXL1.jpeg', desc:'(18+ кг, 34 шт)', available: true },
+{name: 'подгузники NIKKO S', brand: 'NIKKO', size: 'S', type: 'подгузники', price: 7000, img: 'images/nikS.jpg', desc:'(4-8 кг, 64 шт)', available: true },
+{name: 'подгузники NIKKO M', brand: 'NIKKO', size: 'M', type: 'подгузники', price: 7000, img: 'images/nikM.jpg', desc:'(6-11 кг, 52 шт)', available: true },
+{name: 'подгузники NIKKO L', brand: 'NIKKO', size: 'L', type: 'подгузники', price: 7000, img: 'images/nikL.jpg', desc:'(9-14 кг, 48 шт)', available: true },
+{name: 'подгузники NIKKO XL', brand: 'NIKKO', size: 'XL', type: 'подгузники', price: 7000, img: 'images/nikXL.jpg', desc:'(12-18 кг, 42 шт)', available: true },
+{name: 'подгузники NIKKO XXL', brand: 'NIKKO', size: 'XXL', type: 'подгузники', price: 7000, img: 'images/nikXXL.jpg', desc:'(13-20 кг, 38 шт)', available: true },
+{name: 'трусики NIKKO M', brand: 'NIKKO', size: 'M', type: 'трусики', price: 7000, img: 'images/nikM1.jpg', desc:'(6-11 кг, 50 шт)', available: true },
+{name: 'трусики NIKKO L', brand: 'NIKKO', size: 'L', type: 'трусики', price: 7000, img: 'images/nikL1.jpg', desc:'(9-14 кг, 46 шт)', available: true },
+{name: 'трусики NIKKO XL', brand: 'NIKKO', size: 'XL', type: 'трусики', price: 7000, img: 'images/nikXL1.jpg', desc:'(12-18 кг, 42 шт)', available: true },
+{name: 'трусики NIKKO XXL', brand: 'NIKKO', size: 'XXL', type: 'трусики', price: 7000, img: 'images/nikXXL1.jpg', desc:'(15+ кг, 38 шт)', available: true },
+{name: 'трусики NIKKO XXXL', brand: 'NIKKO', size: 'XXXL', type: 'трусики', price: 7000, img: 'images/nikXXXL1.jpeg', desc:'(18+ кг, 34 шт)', available: true },
 {name: 'подгузники Sabiko NB', brand: 'Sabiko', size: 'NB', type: 'подгузники', price: 6500, img: 'images/SABNB.webp', desc:'(2-5 кг, 68 шт)', available: true },
 {name: 'подгузники Sabiko S', brand: 'Sabiko', size: 'S', type: 'подгузники', price: 6500, img: 'images/SABS.webp', desc:'(4-8 кг, 64-70 шт)', available: true },
 {name: 'подгузники Sabiko M', brand: 'Sabiko', size: 'M', type: 'подгузники', price: 6500, img: 'images/SABМ.webp', desc:'(6-11 кг, 56-60 шт)', available: true },
@@ -335,7 +347,10 @@ function render(list){
     ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
     <h3>${p.name}</h3>
     <p class="desc">${p.desc || ''}</p>
-    <p class="price">${p.price} ₸</p>
+    <p class="price">
+  ${p.oldPrice ? `<span class="old-price">${p.oldPrice} ₸</span> ` : ''}
+  <span class="new-price">${p.price} ₸</span>
+</p>
     <button class="btn" onclick="addToCart('${p.name}', ${p.price})" ${!p.available ? 'disabled' : ''}>
       ${p.available ? 'Добавить в корзину' : 'Недоступно'}
     </button>
