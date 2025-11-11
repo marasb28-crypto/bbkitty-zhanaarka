@@ -116,6 +116,44 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
   font-size: 16px;
 }
 }
+  /* Увеличение картинки */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width:600px){
+  .modal-content {
+    max-width: 95%;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -364,7 +402,7 @@ function render(list){
     div.className = 'card';
    div.innerHTML = `
   <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
-    <img src="${p.img}" alt="${p.name}">
+    <img src="${p.img}" alt="${p.name}" onclick="openModal('${p.img}')">
     ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
     <h3>${p.name}</h3>
     <p class="desc">${p.desc || ''}</p>
@@ -401,7 +439,19 @@ function openCart(){
 
 updateCartCount(); // ← чтобы после обновления страницы число не сбрасывалось
 showAll();
-</script>
+  function openModal(src) {
+  document.getElementById("imgModal").style.display = "block";
+  document.getElementById("modalImg").src = src;
+}
 
+function closeModal() {
+  document.getElementById("imgModal").style.display = "none";
+}
+</script>
+<!-- Модальное окно -->
+<div id="imgModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
 </body>
 </html>
