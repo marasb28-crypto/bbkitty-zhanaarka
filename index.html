@@ -107,16 +107,16 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
   font-weight: bold;
 }
 
-.card.out-of-stock img {
+.product-card.out-of-stock img {
   filter: grayscale(100%);
   opacity: 0.6;
 }
 
-.card button[disabled] {
+.product-card button[disabled] {
   background: #ccc;
   cursor: not-allowed;
 }
- .card .desc {
+ .product-card .desc {
   font-size: 13px;
   color: #666;
   margin: 6px 0 10px;
@@ -421,7 +421,7 @@ function render(list){
     const div = document.createElement('div');
     div.className = 'card';
    div.innerHTML = `
-  <div class="card ${!p.available ? 'out-of-stock' : ''}">
+  <div class="product-card ${!p.available ? 'out-of-stock' : ''}">
     <img src="${p.img}" alt="${p.name}" onclick="openModal('${p.img}')">
     ${!p.available ? '<span class="out-badge">Нет в наличии</span>' : ''}
     <h3>${p.name}</h3>
