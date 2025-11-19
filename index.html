@@ -172,6 +172,41 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
     max-width: 95%;
   }
 }
+.promo-board {
+  max-width: 1100px;
+  margin: 20px auto;
+  background: #ffffffcc;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  backdrop-filter: blur(4px);
+}
+
+.promo-board h2 {
+  margin: 0 0 12px;
+  color: #ff4fa1;
+  font-size: 22px;
+  text-align: center;
+}
+
+.promo-card {
+  background: #ffe9f1;
+  border-left: 5px solid #ff80ab;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.promo-card strong {
+  font-size: 16px;
+  color: #d81b60;
+}
+
+@media (max-width:600px) {
+  .promo-board h2 { font-size: 20px; }
+  .promo-card { font-size: 14px; }
+}
 
 </style>
 </head>
@@ -180,6 +215,19 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(
 <header class="header">
   <div class="cart-icon" onclick="openCart()">
   🛒 <span id="cart-count">0</span>
+    <div class="promo-board">
+  <h2>🔥 Акции и Скидки</h2>
+
+  <div class="promo-card">
+    <strong>🎉 Скидка до 5% на крупные заказы!</strong>
+    <p>3% при заказе от 10 000 ₸<br>5% при заказе от 20 000 ₸</p>
+  </div>
+
+  <div class="promo-card">
+    <strong>🛒 Бесплатная доставка по Жанаарке</strong>
+    <p>При заказе от 5 000 ₸</p>
+  </div>
+</div>
 </div>
 </header>
 
