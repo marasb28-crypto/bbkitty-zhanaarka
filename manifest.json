@@ -1,0 +1,27 @@
+{
+  "name": "BB Kitty Zhanaarka",
+  "short_name": "Aya shop",
+  "description": "Интернет-магазин детских товаров BB Kitty Zhanaarka",
+  "start_url": "/bbkitty-zhanaarka/index.html",
+  "display": "standalone",
+  "background_color": "#ffdfe6",
+  "theme_color": "#ff80ab",
+  "icons": [
+    {
+      "src": "images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/maskable_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
