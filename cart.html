@@ -198,7 +198,22 @@ function render(){
     `;
     tbody.appendChild(tr);
   });
-  document.getElementById('total').textContent = 'Итого: ' + total + ' ₸';
+  let discountPercent = 0;
+
+// шкала скидок
+if (total >= 20000) discountPercent = 5;
+else if (total >= 10000) discountPercent = 3;
+
+let discountAmount = Math.floor(total * (discountPercent / 100));
+let totalWithDiscount = total - discountAmount;
+
+// оформление
+document.getElementById('total').innerHTML = `
+  Сумма: ${total} ₸ <br>
+  Скидка: ${discountPercent}% (−${discountAmount} ₸) <br>
+  <strong>Итого к оплате: ${totalWithDiscount} ₸</strong>
+`;
+
 }
 
 function changeQty(index, delta){
@@ -240,7 +255,17 @@ function checkout(){
   });
 
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  message += '%0A💰 Итого: ' + total + ' ₸';
+  let discountPercent = 0;
+if (total >= 20000) discountPercent = 5;
+else if (total >= 10000) discountPercent = 3;
+
+let discountAmount = Math.floor(total * (discountPercent / 100));
+let totalWithDiscount = total - discountAmount;
+
+message += '%0A💰 Сумма: ' + total + ' ₸';
+message += '%0A🔻 Скидка: ' + discountPercent + '% (' + discountAmount + ' ₸)';
+message += '%0A💵 К оплате: ' + totalWithDiscount + ' ₸';
+
 
   window.open('https://wa.me/77479613129?text=' + message, '_blank');
 }
