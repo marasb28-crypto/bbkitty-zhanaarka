@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BB Kitty Zhanaarka</title>
-  <!-- Open Graph для предпросмотра ссылки -->
-<meta property="og:title" content="BB Kitty Zhanaarka — интернет-магазин детских товаров">
+  <meta property="og:title" content="BB Kitty Zhanaarka — интернет-магазин детских товаров">
 <meta property="og:description" content="Подгузники, трусики, влажные салфетки и товары для малышей. Быстрая доставка по Жанаарке.">
 <meta property="og:image" content="https://marasb28-crypto.github.io/bbkitty-zhanaarka/images/og-image.png">
 <meta property="og:url" content="https://marasb28-crypto.github.io/bbkitty-zhanaarka/">
@@ -25,7 +24,6 @@
 <meta name="apple-mobile-web-app-title" content="Aya shop">
 <link rel="apple-touch-icon" href="images/icon-192x192.png">
 
-<!-- Иконка сайта -->
 <link rel="icon" href="images/logoK.PNG">
 <link rel="icon" href="favicon.ico">
 <style>
@@ -279,6 +277,30 @@ body{
   font-size:15px;
 }
 
+/* === КНОПКА НАВЕРХ === */
+#scrollTopBtn {
+  display: none; /* Скрыта по умолчанию */
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #ff4fa1;
+}
+
 /* === АДАПТИВ (ОБЪЕДИНЕННЫЙ) === */
 @media (max-width:600px){
 
@@ -369,6 +391,8 @@ body{
     © 2025 BB Kitty Zhanaarka
   </div>
 </footer>
+
+<button id="scrollTopBtn" title="Наверх">🔝</button>
 
 <script>
 const products = [
@@ -630,8 +654,28 @@ document.addEventListener('click', (e)=>{
   }
 });
 
+// --- Scroll to Top Button Logic ---
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+// Показать кнопку, если прокрутка больше 300px
+window.onscroll = function() { scrollFunction() };
+
+function scrollFunction() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+}
+
+// При клике на кнопку прокрутить до верха
+scrollTopBtn.addEventListener('click', function() {
+  document.body.scrollTop = 0; // Для Safari
+  document.documentElement.scrollTop = 0; // Для Chrome, Firefox, IE и Opera
+});
+// ------------------------------------
+
 </script>
-<!-- Модальное окно -->
 <div id="imgModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="modalImg">
