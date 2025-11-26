@@ -577,8 +577,19 @@ const products = [
 
 const brands = Array.from(new Set(products.map(p=>p.brand)));
 const filtersDiv = document.getElementById('filters');
-filtersDiv.innerHTML = '<button class="filter-btn" onclick="showAll()">Все</button>';
+filtersDiv.innerHTML = `
+  <button class="filter-btn" onclick="showAll()">Все</button>
+  <button class="filter-btn" onclick="filterDiapers()">Подгузники и трусики</button>
+`;
 brands.forEach(b=>{
+  function filterDiapers() {
+  const list = products.filter(p =>
+    p.type.toLowerCase().includes("подгузники") ||
+    p.type.toLowerCase().includes("трусики")
+  );
+  render(list);
+}
+
   const btn = document.createElement('button');
   btn.className = 'filter-btn';
   btn.textContent = b;
