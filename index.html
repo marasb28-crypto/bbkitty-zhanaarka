@@ -577,89 +577,14 @@ const products = [
 
 const brands = Array.from(new Set(products.map(p=>p.brand)));
 const filtersDiv = document.getElementById('filters');
-let diapersOpen = false; // состояние раскрытия
-
-const filtersDiv = document.getElementById('filters');
-
-// Стартовые фильтры
-function renderFilters() {
-  filtersDiv.innerHTML = `
-    <button class="filter-btn" onclick="showAll()">Все</button>
-    <button class="filter-btn" onclick="toggleDiaperBrands()">Подгузники и трусики</button>
-  `;
-
-  // Обычные бренды (кроме подгузников/трусиков)
-  brands.forEach(b => {
-    const hasDiaper = products.some(p =>
-      p.brand === b &&
-      (p.type.toLowerCase().includes("подгузники") ||
-       p.type.toLowerCase().includes("трусики"))
-    );
-
-    // Бренды подгузников выводим только внутри категории
-    if (!hasDiaper) {
-      const btn = document.createElement('button');
-      btn.className = 'filter-btn';
-      btn.textContent = b;
-      btn.onclick = () => filterByBrand(b);
-      filtersDiv.appendChild(btn);
-    }
-  });
-}
-
-
-// ――― Раскрытие списка брендов ―――
-function toggleDiaperBrands() {
-  diapersOpen = !diapersOpen;
-  renderFilters();
-
-  if (diapersOpen) {
-    const diaperBrands = Array.from(new Set(
-      products
-        .filter(p => p.type.toLowerCase().includes("подгузники") ||
-                     p.type.toLowerCase().includes("трусики"))
-        .map(p => p.brand)
-    ));
-
-    diaperBrands.forEach(b => {
-      const btn = document.createElement('button');
-      btn.className = 'filter-btn';
-      btn.textContent = "↳ " + b;
-      btn.style.marginLeft = "10px";
-      btn.onclick = () => filterDiaperBrand(b);
-      filtersDiv.appendChild(btn);
-    });
-
-    // Показываем все товары категории, пока бренд не выбран
-    filterDiapersOnly();
-  }
-}
-
-
-// ――― Фильтр категории ―――
-function filterDiapersOnly() {
-  const list = products.filter(p =>
-    p.type.toLowerCase().includes("подгузники") ||
-    p.type.toLowerCase().includes("трусики")
-  );
-  render(list);
-}
-
-
-// ――― Фильтр бренда внутри категории ―――
-function filterDiaperBrand(b) {
-  const list = products.filter(p =>
-    p.brand === b &&
-    (p.type.toLowerCase().includes("подгузники") ||
-     p.type.toLowerCase().includes("трусики"))
-  );
-  render(list);
-}
-
-
-// Инициализация
-renderFilters();
-
+filtersDiv.innerHTML = '<button class="filter-btn" onclick="showAll()">Все</button>';
+brands.forEach(b=>{
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn';
+  btn.textContent = b;
+  btn.onclick = ()=> filterByBrand(b);
+  filtersDiv.appendChild(btn);
+});
 
 function showAll(){ products.forEach(p => {
   if (p.type === 'подгузники' || p.type === 'трусики') {
